@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons'
+);
+
+.container {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.carousel {
+    border: 2px solid #ccc;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    height: 100%;
+    display: flex;
+    width: 400%;
+    border: 1px solid salmon;
+    transition: all 0.3s;
+}
+
+.slider section {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 60px;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
