@@ -1,15 +1,8 @@
-const slider = document.querySelector('.slider');
-const leftArrow = document.querySelector('.left');
-const rightArrow = document.querySelector('.right');
+const slider = document.querySelector(".slider");
 
-var sectionIndex = 0;
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
 
-leftArrow.addEventListener('click', function () {
-    sectionIndex = (sectionIndex > 0) ? sectionIndex - 1 : 0;
-    slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
-});
-
-rightArrow.addEventListener('click', function () {
-    sectionIndex = (sectionIndex < 3) ? sectionIndex + 1 : 3;
-    slider.style.transform = 'translate(' + (sectionIndex) * -25 + '%)';
+next.addEventListener("click", function () {
+  slider.style.transform = "translate(-20%)";
 });
