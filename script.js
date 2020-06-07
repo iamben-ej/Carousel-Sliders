@@ -12,6 +12,19 @@ function reset() {
   }
 }
 
+//Auto-fade function ######################################################
+
+function startShow() {
+  setInterval(function () {
+    reset();
+    sectionIndex = sectionIndex < 4 ? sectionIndex + 1 : 0;
+    slider.children[sectionIndex].style.zIndex = 1;
+    slider.children[sectionIndex].style.opacity = 1;
+  }, 5000);
+}
+
+startShow();
+
 //Next button ######################################################
 next.addEventListener('click', function () {
   reset();
