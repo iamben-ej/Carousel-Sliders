@@ -2,6 +2,7 @@ const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
 const slider = document.querySelector('.slider');
+const carousel = document.querySelector('.carousel');
 
 var sectionIndex = 0;
 
@@ -12,10 +13,11 @@ function reset() {
   }
 }
 
-//Auto-fade function ######################################################
+var intervalId = 0;
 
+//Auto-fade function ######################################################
 function startShow() {
-  setInterval(function () {
+  intervalId = setInterval(function () {
     reset();
     sectionIndex = sectionIndex < 4 ? sectionIndex + 1 : 0;
     slider.children[sectionIndex].style.zIndex = 1;
@@ -24,6 +26,13 @@ function startShow() {
 }
 
 startShow();
+carousel.addEventListener('mouseover', function () {
+  clearInterval(intervalId);
+});
+
+carousel.addEventListener('mouseout', function () {
+  startShow();
+});
 
 //Next button ######################################################
 next.addEventListener('click', function () {
