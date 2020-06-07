@@ -1,40 +1,29 @@
-const slider = document.querySelector(".slider");
-const carousel = document.querySelector(".carousel");
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
 
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
+const slider = document.querySelector('.slider');
 
-var direction;
+var sectionIndex = 0;
 
-//prev button
-prev.addEventListener("click", function () {
-  if (direction = -1) {
-    //slider.appendChild(slider.firstElementChild);
-    direction = 1;
+function reset() {
+  for (var i = 0; i < slider.children.length; i++) {
+    slider.children[i].style.opacity = 0;
+    slider.children[i].style.zIndex = 0;
   }
-  carousel.style.justifyContent = "flex-end";
-  slider.style.transform = "translate(20%)";
+}
+
+//Next button ######################################################
+next.addEventListener('click', function () {
+  reset();
+  sectionIndex = sectionIndex < 4 ? sectionIndex + 1 : 4;
+  slider.children[sectionIndex].style.zIndex = 1;
+  slider.children[sectionIndex].style.opacity = 1;
 });
 
-//next button
-next.addEventListener("click", function () {
-  direction = -1;
-  carousel.style.justifyContent = "flex-start";
-  slider.style.transform = "translate(-20%)";
-});
-
-//move already transitioned element to end of elements.
-slider.addEventListener("transitionend", function () {
-  if (direction == -1) {
-    slider.appendChild(slider.firstElementChild);
-  } else if (direction == 1) {
-    slider.prepend(slider.lastElementChild);
-  }
-
-  //reset translate (back) to 0 to make next content the current first element.
-  slider.style.transition = "none";
-  slider.style.transform = "translate(0)";
-  setTimeout(function () {
-    slider.style.transition = "all 0.5s";
-  });
+//Previous button ######################################################
+prev.addEventListener('click', function () {
+  reset();
+  sectionIndex = sectionIndex > 0 ? sectionIndex - 1 : 0;
+  slider.children[sectionIndex].style.zIndex = 1;
+  slider.children[sectionIndex].style.opacity = 1;
 });

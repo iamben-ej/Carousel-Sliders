@@ -1,52 +1,72 @@
-body {
-  background: #000;
-}
-
 .container {
-  width: 90%;
+  width: 80%;
+  height: 400px;
   margin: 20px auto;
-  height: 300px;
 }
 
 .carousel {
-  background: #fff;
-  height: 100%;
   width: 100%;
-  border: 2px solid orange;
+  height: 100%;
+  border: 2px solid #ccc;
   border-radius: 3px;
-  display: flex-start;
   position: relative;
-  overflow: hidden;
 }
 
 .slider {
-  display: flex;
+  width: 100%;
   height: 100%;
-  width: 500%;
-  flex-shrink: 0;
-  transition: all 0.5s;
 }
 
 .slider section {
-  flex-basis: 20%;
-  width: 20%;
-  flex-shrink: 0;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.arrow {
   position: absolute;
-  top: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  opacity: 0;
+  z-index: 0;
+  transition: all 1s ease-in-out;
+}
+
+.slider section:nth-child(1) {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slider section:nth-child(2) {
+  background: tomato;
+}
+
+.slider section:nth-child(3) {
+  background: rgb(251, 148, 129);
+}
+
+.slider section:nth-child(4) {
+  background: rgb(248, 186, 175);
+}
+
+.slider section:nth-child(5) {
+  background: rgb(253, 232, 229);
+}
+
+/* buttons ####################################### */
+
+.next {
   cursor: pointer;
-}
-
-.arrow.prev {
-  left: 10px;
-}
-
-.arrow.next {
+  position: absolute;
+  top: 50%;
   right: 10px;
+  z-index: 2;
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  z-index: 2;
 }
