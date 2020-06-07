@@ -1,20 +1,25 @@
+body {
+  background: #000;
+}
+
 .container {
-  width: 20%;
-  margin: 20px 200px;
+  width: 90%;
+  margin: 20px auto;
   height: 300px;
 }
 
 .carousel {
+  background: #fff;
   height: 100%;
   width: 100%;
   border: 2px solid orange;
   border-radius: 3px;
   display: flex-start;
   position: relative;
+  overflow: hidden;
 }
 
 .slider {
-  border: 1px solid green;
   display: flex;
   height: 100%;
   width: 500%;
